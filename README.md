@@ -11,6 +11,8 @@
 
 <p align="center">
   <a href="https://github.com/sstp-pinger/sstp_shield_releases/releases/latest"><b>⬇️ Download the latest release</b></a>
+  ·
+  <a href="https://sstp-pinger.github.io/sstp_shield_releases/"><b>🌐 Website</b></a>
 </p>
 
 ---
@@ -30,13 +32,10 @@ Grab the [**latest release**](https://github.com/sstp-pinger/sstp_shield_release
 
 | Platform | File | Notes |
 |----------|------|-------|
-| **Android** | `sstp-shield-local.apk` | Universal APK — works on any phone (~50 MB). |
-| **Android** (smaller) | `sstp-shield-local-arm64-v8a.apk` | Per-ABI split (~20 MB). Most modern phones are **arm64-v8a**; older ones **armeabi-v7a**; emulators **x86_64**. |
+| **Android** | `sstp-shield.apk` | Universal APK — works on any phone (~50 MB). |
+| **Android** (smaller) | `sstp-shield-arm64-v8a.apk` | Per-ABI split (~20 MB). Most modern phones are **arm64-v8a**; older ones **armeabi-v7a**; emulators **x86_64**. |
 | **Windows** | `sstp-shield-windows-x64.zip` | Unzip and run. Must run **as Administrator**. |
 | **Linux** | `sstp-shield-linux-x64.tar.gz` | Extract, grant a capability once, then launch. |
-
-> The `-foreign` APKs are an alternate build variant. Unless you were told to use
-> them, choose the plain (`local`) ones.
 
 ## Install & first run
 
@@ -116,5 +115,8 @@ capability).
 SSTP Shield is a VPN client. It talks only to the VPN servers you connect to and
 the activation/server-list endpoint. No source is hosted here — this repo is
 downloads and docs only.
+
+See the full [Privacy Policy](https://sstp-shield-server.vercel.app/privacy) and
+[Terms of Service](https://sstp-shield-server.vercel.app/terms).
 </content>
 </invoke>

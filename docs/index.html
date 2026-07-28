@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SSTP Shield — VPN client for SSTP &amp; SoftEther</title>
+<meta name="description" content="A fast, cross-platform VPN client for SSTP and SoftEther servers, including free VPN Gate servers. No account, no sign-up, 7-day free trial.">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --bg-alt: #f6f7f9;
+    --text: #17181c;
+    --text-muted: #55585f;
+    --border: #e6e7eb;
+    --accent: #2f6fed;
+    --accent-text: #ffffff;
+    --card: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115;
+      --bg-alt: #161922;
+      --text: #edeef2;
+      --text-muted: #9aa0ac;
+      --border: #262a35;
+      --accent: #5b8dff;
+      --accent-text: #0b0e14;
+      --card: #171a22;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+  header.hero {
+    padding: 64px 0 48px;
+    text-align: center;
+  }
+  .logo {
+    width: 96px;
+    height: 96px;
+    border-radius: 22px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
+  }
+  .tagline {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 560px;
+    margin: 0 auto 28px;
+  }
+  .cta-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    border: 1px solid var(--border);
+  }
+  .btn.primary {
+    background: var(--accent);
+    color: var(--accent-text);
+    border-color: transparent;
+  }
+  .btn.secondary {
+    background: var(--card);
+    color: var(--text);
+  }
+  section { padding: 40px 0; }
+  section.alt { background: var(--bg-alt); }
+  h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0 0 32px;
+    letter-spacing: -0.01em;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .feature {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .feature .icon { font-size: 1.6rem; margin-bottom: 10px; }
+  .feature h3 { margin: 0 0 6px; font-size: 1rem; }
+  .feature p { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
+
+  .platforms {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .platform-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    text-align: center;
+  }
+  .platform-card .icon { font-size: 2rem; margin-bottom: 8px; }
+  .platform-card h3 { margin: 0 0 4px; }
+  .platform-card p { margin: 0 0 14px; color: var(--text-muted); font-size: 0.85rem; }
+
+  footer {
+    text-align: center;
+    padding: 40px 0 60px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--text-muted); text-decoration: underline; }
+  footer .links { margin-bottom: 10px; }
+  footer .links a { margin: 0 8px; }
+
+  @media (max-width: 480px) {
+    .cta-row { flex-direction: column; align-items: stretch; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <img class="logo" src="assets/app_icon.png" alt="SSTP Shield icon">
+    <h1>SSTP Shield</h1>
+    <p class="tagline">
+      A fast, cross-platform VPN client for SSTP and SoftEther servers —
+      including thousands of free public VPN Gate servers. No account,
+      no email, no password.
+    </p>
+    <div class="cta-row">
+      <a class="btn primary" href="https://github.com/sstp-pinger/sstp_shield_releases/releases/latest">
+        ⬇ Download latest release
+      </a>
+      <a class="btn secondary" href="https://github.com/sstp-pinger/sstp_shield_releases#readme">
+        Installation guide
+      </a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Why SSTP Shield</h2>
+    <div class="grid">
+      <div class="feature">
+        <div class="icon">🔓</div>
+        <h3>No sign-up, ever</h3>
+        <p>No email, no password. Open the app and you're in — a random username and device ID are all that identify your subscription.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🎁</div>
+        <h3>7-day free trial</h3>
+        <p>Try it with zero commitment before paying anything.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">💸</div>
+        <h3>Anonymous payment</h3>
+        <p>Subscribe with USDT (BEP20/TRC20) — no card, no bank, no identity required.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🌍</div>
+        <h3>Thousands of servers</h3>
+        <p>Includes the free public VPN Gate pool, auto-pinged so you connect to a fast one.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">📡</div>
+        <h3>Proxy sharing</h3>
+        <p>Once connected, other devices on your Wi-Fi can route through your tunnel too.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🔒</div>
+        <h3>No traffic logging</h3>
+        <p>The backend only manages your subscription — it's never in the path of your actual VPN traffic.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <h2>Get it for your platform</h2>
+    <div class="platforms">
+      <div class="platform-card">
+        <div class="icon">🤖</div>
+        <h3>Android</h3>
+        <p>Universal APK, or a smaller per-ABI download.</p>
+        <a class="btn secondary" href="https://github.com/sstp-pinger/sstp_shield_releases/releases/latest">Download</a>
+      </div>
+      <div class="platform-card">
+        <div class="icon">🪟</div>
+        <h3>Windows</h3>
+        <p>SSTP built in; SoftEther drives your installed SoftEther client.</p>
+        <a class="btn secondary" href="https://github.com/sstp-pinger/sstp_shield_releases/releases/latest">Download</a>
+      </div>
+      <div class="platform-card">
+        <div class="icon">🐧</div>
+        <h3>Linux</h3>
+        <p>SSTP and SoftEther both bundled, no external install needed.</p>
+        <a class="btn secondary" href="https://github.com/sstp-pinger/sstp_shield_releases/releases/latest">Download</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="links">
+      <a href="https://github.com/sstp-pinger/sstp_shield_releases">GitHub</a>
+      <a href="https://sstp-shield-server.vercel.app/privacy">Privacy Policy</a>
+      <a href="https://sstp-shield-server.vercel.app/terms">Terms of Service</a>
+      <a href="mailto:sstp.pinger@gmail.com">Contact</a>
+    </div>
+    SSTP Shield — a VPN client for SSTP and SoftEther servers.
+  </footer>
+</div>
+
+</body>
+</html>
