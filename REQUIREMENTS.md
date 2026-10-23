@@ -37,6 +37,13 @@ The installer (`sstp-shield-setup-x64.exe`) is not code-signed yet, so Windows S
 | **Tools** | `ip` from iproute2. For the one-time setup: `gcc`, `libcap` (`setcap`), `patchelf` and `sudo`. |
 | **SoftEther protocol (optional)** | `polkit` (`pkexec`), which asks for your password when you connect. The SoftEther client itself is bundled. |
 
+## Command-line tool
+
+`sstp-shield-cli` has the same requirements as the desktop app it ships with.
+On Windows, `connect` needs a terminal opened with **Run as administrator**. On
+Linux, it needs the capability once, after the app's setup:
+`sudo setcap cap_net_admin+ep ./sstp-shield-cli`. See [CLI.md](CLI.md).
+
 ## Network (all platforms)
 
 - Outbound TCP to the VPN server's port, usually 443.

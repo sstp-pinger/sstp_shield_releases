@@ -114,6 +114,30 @@ capability).
 - **Reconnection** — set a retry count and interval in Settings to auto-recover
   dropped tunnels.
 
+## Command-line tool (Windows, Linux)
+
+The Windows and Linux downloads also include `sstp-shield-cli`, which does
+the same without the window: connect, measure servers, manage your access and
+change settings. It uses the app's account and settings, so there is nothing
+to activate twice. **Close the app first**: only one of them runs at a time.
+
+- **Windows:** it is in the install folder. Tick **Add the command-line tool to
+  PATH** in the installer to run it from any folder. `connect` needs a terminal
+  opened with **Run as administrator**.
+- **Linux:** after the app's setup above, grant it the same capability once,
+  and again after every update:
+  `sudo setcap cap_net_admin+ep ./sstp-shield-cli`
+
+```bash
+sstp-shield-cli ping                    # measure every server
+sstp-shield-cli connect                 # fastest server; q or Ctrl+C disconnects
+sstp-shield-cli connect --auto-switch   # keep moving until one works; n = next
+sstp-shield-cli account status
+sstp-shield-cli config get
+```
+
+Every command and option: [CLI.md](CLI.md).
+
 ## Troubleshooting
 
 | Symptom | Fix |
@@ -123,6 +147,7 @@ capability).
 | Linux: the app does not start (GLIBC error) | Your distribution is too old; see the [requirements](REQUIREMENTS.md). |
 | Windows: SoftEther fails to connect | Install the official SoftEther VPN Client, then retry. |
 | Linux: "needs CAP_NET_ADMIN" | Run `./tool/setup_privilege.sh ./sstp_shield` (no sudo), then launch `./sstp-vpn`. |
+| `sstp-shield-cli`: "already running" | Close the SSTP Shield app (or the other `sstp-shield-cli`) first. |
 | A server hangs or won't connect | Pick another — free servers come and go. Ping first to find a live one. |
 
 ## Privacy
