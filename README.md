@@ -20,7 +20,11 @@
 SSTP Shield connects to SSTP and SoftEther VPN servers (including free
 [VPN Gate](https://www.vpngate.net/) servers). On desktop it runs its own
 pure-Dart SSTP stack; the SoftEther protocol drives the official SoftEther
-client. Activation is by code — paste it or load it from a file.
+client. A new install starts a free trial by itself; after that, access is by
+activation code or a USDT subscription.
+
+It has two views: **Simple** — one Connect button that finds a working server
+by itself — and **Professional**, with the server list and every setting.
 
 This repository hosts **downloads and documentation only**. Each
 [release](https://github.com/sstp-pinger/sstp_shield_releases/releases) carries
@@ -47,9 +51,9 @@ Windows 10/11 x64, or 64-bit Linux with glibc 2.39+ (Ubuntu 24.04 or newer).
 
 1. Download an APK (universal if unsure).
 2. Open it. Android will ask to allow installing from this source — allow it.
-3. Launch **SSTP Shield**, paste your **activation code** (or load it from a
-   file), and connect. On the first connect Android asks to add a VPN
-   configuration — accept it.
+3. Launch **SSTP Shield**. A new install opens in [Simple mode](#simple-mode)
+   with a free trial already started: press **Connect**. On the first connect
+   Android asks to add a VPN configuration — accept it.
 
 ### Windows
 
@@ -58,7 +62,7 @@ Windows 10/11 x64, or 64-bit Linux with glibc 2.39+ (Ubuntu 24.04 or newer).
 2. Pick an install folder and whether to add a desktop shortcut, then finish.
 3. Launch **SSTP Shield**. It asks for Administrator rights at every launch;
    they are required to create the virtual network adapter.
-4. Paste your activation code and connect.
+4. Press **Connect** (see [Simple mode](#simple-mode)).
 
 New versions are offered inside the app: it downloads the installer, checks
 its SHA-256 checksum, installs it and restarts. Your settings and account are
@@ -98,10 +102,32 @@ capability).
 > Choosing SoftEther elevates a small helper through `pkexec`, so a password
 > prompt appears on connect (needs `polkit`).
 
-## Using the app
+## Simple mode
 
-- **Activate** — paste your activation code, or tap the file button to load it
-  from the code file the app saved earlier.
+New installs open in Simple mode: a status line, one big **Connect** button,
+and a settings button in the top-right corner. Nothing to choose.
+
+- **Connect** finds the fastest server and keeps the connection working: it
+  checks that pages really load, and moves to another server by itself if
+  one stops. A line running around the button's border shows how far the
+  connection has got, and the dot beside the status pulses while it works.
+- **Try another server** appears once you are connected. Press it if a site
+  will not load.
+- **Disconnect** turns protection off.
+- When the free trial ends, one screen says so, with a **Get access** button
+  for an activation code or a subscription.
+
+The server list refreshes by itself every 12 hours while you are connected.
+
+**Switching view:** in Simple mode, tap the settings button (top right) →
+**Switch to professional view**. In the professional view, **Settings → Look
+→ View → Simple** brings you back. Updating from an older version keeps the
+professional view.
+
+## Professional view
+
+- **Activate** — on the Unlock screen: start the free trial, paste an
+  activation code (or load the code file), or subscribe with USDT.
 - **Pick a server** — browse the **Servers**, **Bookmarks**, and **Recents**
   tabs. The header shows how many servers are available and how many are
   currently reachable. A view-mode toggle switches between grouped and a flat,
@@ -111,6 +137,9 @@ capability).
 - **Ping** — measures latency so you can pick a fast server.
 - **Protocol** *(desktop only)* — choose **SSTP** or **SoftEther** in a
   profile's settings. Hidden on mobile, which is SSTP-only.
+- **Auto-switch** — hold **Connect**: the app checks that pages load through
+  the tunnel and moves through the measured servers until one keeps working.
+  **Next server** moves on yourself.
 - **Reconnection** — set a retry count and interval in Settings to auto-recover
   dropped tunnels.
 
