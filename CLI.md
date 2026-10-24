@@ -101,10 +101,10 @@ settings as in the app:
 | | Windows | Linux |
 |---|---|---|
 | Settings and account (shared with the app) | `%APPDATA%\com.atasanbratan\SSTP Shield\shared_preferences.json` | `~/.local/share/com.atasanbratan.sstp_shield/shared_preferences.json` |
-| CLI log (cleared at every start) | `%LOCALAPPDATA%\SSTPShield\sstp-shield-cli.log` | `~/.local/share/sstp-shield/sstp-shield-cli.log` |
+| CLI log (the last day; older lines in `sstp-shield-cli.previous.log`) | `%LOCALAPPDATA%\SSTPShield\sstp-shield-cli.log` | `~/.local/share/sstp-shield/sstp-shield-cli.log` |
 
-`sstp-shield-cli logs` prints the log, and `--verbose` also prints it as it
-is written.
+`sstp-shield-cli logs` prints the log, `logs --previous` the file before it,
+and `--verbose` also prints it as it is written.
 
 ## Not in the CLI
 
