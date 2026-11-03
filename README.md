@@ -88,7 +88,8 @@ capability once instead:
 tar xzf sstp-shield-linux-x64.tar.gz
 cd sstp-shield-linux-x64
 
-# One-time: grant the capability (needs gcc, libcap, patchelf).
+# One-time: grant the capability and allow DNS changes
+# (needs gcc, libcap, patchelf; asks for your password once).
 ./tool/setup_privilege.sh ./sstp_shield
 
 # Launch via the generated wrapper.
@@ -97,6 +98,14 @@ cd sstp-shield-linux-x64
 
 Re-run `setup_privilege.sh` after replacing the binary (an update clears the
 capability).
+
+**DNS through the VPN:** in full-tunnel mode the app points
+`systemd-resolved` at 1.1.1.1 and 8.8.8.8 through the tunnel, so name lookups
+don't leak to your local network, and puts your DNS back on disconnect. The
+setup script installs a polkit rule that lets your user do this without a
+password prompt. **Updating from 3.5 or older? Run the script once more** to
+get the rule; until then the app connects but warns that DNS is not going
+through the VPN.
 
 > **SoftEther protocol on Linux:** no setup needed — just run `./sstp_shield`.
 > Choosing SoftEther elevates a small helper through `pkexec`, so a password
@@ -133,7 +142,9 @@ professional view.
   currently reachable. A view-mode toggle switches between grouped and a flat,
   sorted list.
 - **Refresh servers** — the download-style button (next to ping) fetches a fresh
-  server list.
+  server list. Your saved servers stay on screen and usable while it loads,
+  with a thin bar above the list; **Stop fetching** cancels a slow fetch. If
+  the fetch fails, the saved list stays and a note says so.
 - **Ping** — measures latency so you can pick a fast server.
 - **Protocol** *(desktop only)* — choose **SSTP** or **SoftEther** in a
   profile's settings. Hidden on mobile, which is SSTP-only.
@@ -176,6 +187,8 @@ Every command and option: [CLI.md](CLI.md).
 | Linux: the app does not start (GLIBC error) | Your distribution is too old; see the [requirements](REQUIREMENTS.md). |
 | Windows: SoftEther fails to connect | Install the official SoftEther VPN Client, then retry. |
 | Linux: "needs CAP_NET_ADMIN" | Run `./tool/setup_privilege.sh ./sstp_shield` (no sudo), then launch `./sstp-vpn`. |
+| Linux: "DNS is NOT going through the VPN" | Run `./tool/setup_privilege.sh ./sstp_shield` again to install the DNS rule. Needs `systemd-resolved` and `polkit`. |
+| WSL: DNS warning about `10.255.255.254` | WSL writes its own resolver. Set `generateResolvConf=false` in `/etc/wsl.conf` and link `/etc/resolv.conf` to systemd-resolved's stub. |
 | `sstp-shield-cli`: "already running" | Close the SSTP Shield app (or the other `sstp-shield-cli`) first. |
 | A server hangs or won't connect | Pick another — free servers come and go. Ping first to find a live one. |
 
