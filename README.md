@@ -19,6 +19,12 @@ Fast, free to try, no account needed. Android · Windows · Linux.
 **[FAQ](https://sstp-pinger.github.io/docs/faq)** ·
 **[Changelog](https://sstp-pinger.github.io/changelogs)**
 
+<br>
+
+<a href="https://sstp-pinger.github.io"><img src="https://sstp-pinger.github.io/screenshots/connected.png" width="760" alt="SSTP Shield connected, showing the exit IP, country, DNS and IPv6 status"></a>
+
+<img src="https://sstp-pinger.github.io/screenshots/simple.png" width="376" alt="Simple mode"> <img src="https://sstp-pinger.github.io/screenshots/servers.png" width="376" alt="Server list">
+
 </div>
 
 ---
