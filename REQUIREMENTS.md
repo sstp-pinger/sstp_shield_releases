@@ -34,7 +34,7 @@ The installer (`sstp-shield-setup-x64.exe`) is not code-signed yet, so Windows S
 | **Storage** | About 27 MB download, more once extracted. |
 | **Desktop** | GTK 3 (installed with GNOME, KDE, Xfce and most desktops); X11 or Wayland |
 | **Kernel** | TUN support (`/dev/net/tun`), present in all mainstream kernels |
-| **Tools** | `ip` from iproute2. The `.deb` (Ubuntu, Debian) needs nothing else: `apt` installs what it depends on. For the tarball's one-time setup: `gcc`, `libcap` (`setcap`), `patchelf` and `sudo`. |
+| **Tools** | `ip` from iproute2. The `.deb` (Ubuntu, Debian) and the Arch package need nothing else: `apt` or `pacman` installs what they depend on. For the tarball's one-time setup: `gcc`, `libcap` (`setcap`), `patchelf` and `sudo`. |
 | **SoftEther protocol (optional)** | `polkit` (`pkexec`), which asks for your password when you connect. The SoftEther client itself is bundled. |
 
 ## Command-line tool

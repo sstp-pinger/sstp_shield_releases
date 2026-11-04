@@ -41,6 +41,7 @@ Grab the [**latest release**](https://github.com/sstp-pinger/sstp_shield_release
 | **Windows** | `sstp-shield-setup-x64.exe` | Installer — choose a folder, adds a desktop shortcut, updates itself. |
 | **Windows** (portable) | `sstp-shield-windows-x64.zip` | Unzip and run **as Administrator**. No in-app updates. |
 | **Linux** (Ubuntu, Debian) | `sstp-shield-linux-x64.deb` | Install with `apt`; sets everything up and adds a menu entry. |
+| **Linux** (Arch, Manjaro) | `sstp-shield-linux-x64.pkg.tar.zst` | Install with `pacman -U`; sets everything up and adds a menu entry. |
 | **Linux** (other) | `sstp-shield-linux-x64.tar.gz` | Extract, grant a capability once, then launch. |
 
 Check the [**system requirements**](REQUIREMENTS.md) first: Android 7.0+,
@@ -100,6 +101,19 @@ Then start **SSTP Shield** from the applications menu, or run `sstp-shield`.
 The package does the one-time setup below by itself, again on every update,
 and installs to `/opt/sstp-shield`. `sudo apt remove sstp-shield` takes it all
 away. To update, install the new `.deb` the same way.
+
+**Arch Linux and its derivatives:** install the package (from 3.6.6):
+
+```bash
+sudo pacman -U https://github.com/sstp-pinger/sstp_shield_releases/releases/latest/download/sstp-shield-linux-x64.pkg.tar.zst
+```
+
+It works like the `.deb`: menu entry, `sstp-shield`, the setup done on every
+update, `/opt/sstp-shield`. For DNS through the VPN, install `polkit` and run
+`systemd-resolved` (`sudo systemctl enable --now systemd-resolved`).
+`sudo pacman -R sstp-shield` removes it. It is not in a repository, so
+`pacman -Syu` does not update it: run the same `pacman -U` for each new
+version.
 
 **Other distributions:** use the tarball. The default **SSTP** protocol creates
 a TUN device, which needs the `CAP_NET_ADMIN` capability. Do **not** run the
@@ -186,7 +200,8 @@ to activate twice. **Close the app first**: only one of them runs at a time.
 - **Windows:** it is in the install folder. Tick **Add the command-line tool to
   PATH** in the installer to run it from any folder. `connect` needs a terminal
   opened with **Run as administrator**.
-- **Linux, `.deb`:** nothing to do; run `sstp-shield-cli` from any folder.
+- **Linux, `.deb` or Arch package:** nothing to do; run `sstp-shield-cli`
+  from any folder.
 - **Linux, tarball:** after the app's setup above, grant it the same
   capability once, and again after every update:
   `sudo setcap cap_net_admin+ep ./sstp-shield-cli`
@@ -209,8 +224,8 @@ Every command and option: [CLI.md](CLI.md).
 | Windows: the app does not start | Install the latest [Visual C++ Redistributable (x64)](https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist). |
 | Linux: the app does not start (GLIBC error) | Your distribution is too old; see the [requirements](REQUIREMENTS.md). |
 | Windows: SoftEther fails to connect | Install the official SoftEther VPN Client, then retry. |
-| Linux: "needs CAP_NET_ADMIN" | `.deb`: reinstall it. Tarball: run `./tool/setup_privilege.sh ./sstp_shield` (no sudo), then launch `./sstp-vpn`. |
-| Linux: "DNS is NOT going through the VPN" | `.deb`: install `systemd-resolved` and `polkitd`. Tarball: run `./tool/setup_privilege.sh ./sstp_shield` again to install the DNS rule (needs the same two). |
+| Linux: "needs CAP_NET_ADMIN" | `.deb` or Arch package: reinstall it. Tarball: run `./tool/setup_privilege.sh ./sstp_shield` (no sudo), then launch `./sstp-vpn`. |
+| Linux: "DNS is NOT going through the VPN" | `.deb`: install `systemd-resolved` and `polkitd`. Arch: install `polkit` and enable `systemd-resolved`. Tarball: run `./tool/setup_privilege.sh ./sstp_shield` again to install the DNS rule (needs the same two). |
 | WSL: DNS warning about `10.255.255.254` | WSL writes its own resolver. Set `generateResolvConf=false` in `/etc/wsl.conf` and link `/etc/resolv.conf` to systemd-resolved's stub. |
 | `sstp-shield-cli`: "already running" | Close the SSTP Shield app (or the other `sstp-shield-cli`) first. |
 | A server hangs or won't connect | Pick another — free servers come and go. Ping first to find a live one. |
