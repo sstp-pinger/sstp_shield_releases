@@ -55,6 +55,9 @@ Windows 10/11 x64, or 64-bit Linux with glibc 2.39+ (Ubuntu 24.04 or newer).
    with a free trial already started: press **Connect**. On the first connect
    Android asks to add a VPN configuration — accept it.
 
+New versions are offered inside the app, which downloads the APK for your
+phone and opens Android's installer.
+
 ### Windows
 
 1. Download and run `sstp-shield-setup-x64.exe`. It is not code-signed yet, so
@@ -67,6 +70,12 @@ Windows 10/11 x64, or 64-bit Linux with glibc 2.39+ (Ubuntu 24.04 or newer).
 New versions are offered inside the app: it downloads the installer, checks
 its SHA-256 checksum, installs it and restarts. Your settings and account are
 kept, including when you uninstall.
+
+> **Where GitHub downloads are blocked:** from 3.6.3 on, if the update cannot
+> be downloaded from GitHub, the app (Windows and Android) gets the same file
+> through the [jsDelivr](https://www.jsdelivr.com/) mirror
+> ([sstp_shield_mirror](https://github.com/sstp-pinger/sstp_shield_mirror))
+> and checks it against its SHA-256 before installing.
 
 Prefer no installer? Unzip `sstp-shield-windows-x64.zip` and **right-click
 `sstp_shield.exe` → Run as administrator**. The portable copy cannot update
