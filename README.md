@@ -1,242 +1,80 @@
-<p align="center">
-  <img src="assets/app_icon.png" width="120" alt="SSTP Shield">
-</p>
+<div align="center">
 
-<h1 align="center">SSTP Shield</h1>
+<a href="https://sstp-pinger.github.io">
+  <img src="assets/app_icon.png" width="96" alt="SSTP Shield logo">
+</a>
 
-<p align="center">
-  A fast, cross-platform VPN client for <b>SSTP</b> and <b>SoftEther</b> servers.<br>
-  Android · Windows · Linux
-</p>
+# SSTP Shield
 
-<p align="center">
-  <a href="https://github.com/sstp-pinger/sstp_shield_releases/releases/latest"><b>⬇️ Download the latest release</b></a>
-  ·
-  <a href="https://sstp-pinger.github.io/sstp_shield_releases/"><b>🌐 Website</b></a>
-</p>
+### VPN client for SSTP and SoftEther servers
+Fast, free to try, no account needed. Android · Windows · Linux.
+
+[![Latest release](https://img.shields.io/github/v/release/sstp-pinger/sstp_shield_releases?label=release&style=flat-square)](https://github.com/sstp-pinger/sstp_shield_releases/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/sstp-pinger/sstp_shield_releases/total?style=flat-square)](https://github.com/sstp-pinger/sstp_shield_releases/releases)
+[![Platforms](https://img.shields.io/badge/platforms-Android%20%7C%20Windows%20%7C%20Linux-2f6fed?style=flat-square)](https://sstp-pinger.github.io/download)
+
+**[Website](https://sstp-pinger.github.io)** ·
+**[Download](https://sstp-pinger.github.io/download)** ·
+**[Getting started](https://sstp-pinger.github.io/docs/guides/getting-started)** ·
+**[FAQ](https://sstp-pinger.github.io/docs/faq)** ·
+**[Changelog](https://sstp-pinger.github.io/changelogs)**
+
+</div>
 
 ---
 
-SSTP Shield connects to SSTP and SoftEther VPN servers (including free
-[VPN Gate](https://www.vpngate.net/) servers). On desktop it runs its own
-pure-Dart SSTP stack; the SoftEther protocol drives the official SoftEther
-client. A new install starts a free trial by itself; after that, access is by
-activation code or a USDT subscription.
+SSTP Shield connects to SSTP and SoftEther VPN servers, including the free
+public [VPN Gate](https://www.vpngate.net/) servers. A new install starts a
+free trial by itself; after that, access is by activation code or a USDT
+subscription.
 
-It has two views: **Simple** — one Connect button that finds a working server
-by itself — and **Professional**, with the server list and every setting.
+This repository hosts the **downloads** for every
+[release](https://github.com/sstp-pinger/sstp_shield_releases/releases). The
+documentation lives on the [website](https://sstp-pinger.github.io).
 
-This repository hosts **downloads and documentation only**. Each
-[release](https://github.com/sstp-pinger/sstp_shield_releases/releases) carries
-prebuilt binaries for all platforms.
+## Features
+
+- **No sign-up.** No email, no password: open the app and press Connect.
+- **Simple mode.** One button finds the fastest server, checks that pages
+  really load, and moves to another server by itself when one stops.
+- **Professional view.** The full server list with bookmarks, recents, ping,
+  auto-switch, reconnection and every setting.
+- **SSTP and SoftEther.** SSTP built in on every platform; SoftEther on
+  Windows and Linux.
+- **No DNS leaks.** In full-tunnel mode name lookups go through the VPN too.
+- **Proxy sharing.** Other devices on your Wi-Fi can use the tunnel through
+  one HTTP and SOCKS5 port.
+- **Command-line tool.** `sstp-shield-cli` on Windows and Linux.
+- **Updates itself,** with a jsDelivr mirror where GitHub is blocked.
+- **Anonymous payment** with USDT (BEP20 or TRC20).
 
 ## Download
 
-Grab the [**latest release**](https://github.com/sstp-pinger/sstp_shield_releases/releases/latest) and pick the file for your platform:
+Get the [**latest release**](https://github.com/sstp-pinger/sstp_shield_releases/releases/latest)
+and pick the file for your platform:
 
-| Platform | File | Notes |
-|----------|------|-------|
-| **Android** | `sstp-shield.apk` | Universal APK — works on any phone (~50 MB). |
-| **Android** (smaller) | `sstp-shield-arm64-v8a.apk` | Per-ABI split (~20 MB). Most modern phones are **arm64-v8a**; older ones **armeabi-v7a**; emulators **x86_64**. |
-| **Windows** | `sstp-shield-setup-x64.exe` | Installer — choose a folder, adds a desktop shortcut, updates itself. |
-| **Windows** (portable) | `sstp-shield-windows-x64.zip` | Unzip and run **as Administrator**. No in-app updates. |
-| **Linux** (Ubuntu, Debian) | `sstp-shield-linux-x64.deb` | Install with `apt`; sets everything up and adds a menu entry. |
-| **Linux** (Arch, Manjaro) | `sstp-shield-linux-x64.pkg.tar.zst` | Install with `pacman -U`; sets everything up and adds a menu entry. |
-| **Linux** (other) | `sstp-shield-linux-x64.tar.gz` | Extract, grant a capability once, then launch. |
+| Platform | File |
+|----------|------|
+| **Android** 7.0+ | `sstp-shield.apk` (universal), or the smaller `arm64-v8a` / `armeabi-v7a` / `x86_64` APK |
+| **Windows** 10/11 x64 | `sstp-shield-setup-x64.exe` (installer), or `sstp-shield-windows-x64.zip` (portable) |
+| **Linux** — Ubuntu, Debian | `sstp-shield-linux-x64.deb` |
+| **Linux** — Arch, Manjaro | `sstp-shield-linux-x64.pkg.tar.zst` |
+| **Linux** — other | `sstp-shield-linux-x64.tar.gz` |
 
-Check the [**system requirements**](REQUIREMENTS.md) first: Android 7.0+,
-Windows 10/11 x64, or 64-bit Linux with glibc 2.39+ (Ubuntu 24.04 or newer).
+Linux needs glibc 2.39 or newer (Ubuntu 24.04+). See the
+[system requirements](https://sstp-pinger.github.io/docs/requirements) and
+[how to install](https://sstp-pinger.github.io/docs/guides/getting-started)
+for your platform.
 
-## Install & first run
+## Help
 
-### Android
-
-1. Download an APK (universal if unsure).
-2. Open it. Android will ask to allow installing from this source — allow it.
-3. Launch **SSTP Shield**. A new install opens in [Simple mode](#simple-mode)
-   with a free trial already started: press **Connect**. On the first connect
-   Android asks to add a VPN configuration — accept it.
-
-New versions are offered inside the app, which downloads the APK for your
-phone and opens Android's installer.
-
-### Windows
-
-1. Download and run `sstp-shield-setup-x64.exe`. It is not code-signed yet, so
-   if SmartScreen warns, choose **More info → Run anyway**.
-2. Pick an install folder and whether to add a desktop shortcut, then finish.
-3. Launch **SSTP Shield**. It asks for Administrator rights at every launch;
-   they are required to create the virtual network adapter.
-4. Press **Connect** (see [Simple mode](#simple-mode)).
-
-New versions are offered inside the app: it downloads the installer, checks
-its SHA-256 checksum, installs it and restarts. Your settings and account are
-kept, including when you uninstall.
-
-> **Where GitHub downloads are blocked:** from 3.6.3 on, if the update cannot
-> be downloaded from GitHub, the app (Windows and Android) gets the same file
-> through the [jsDelivr](https://www.jsdelivr.com/) mirror
-> ([sstp_shield_mirror](https://github.com/sstp-pinger/sstp_shield_mirror))
-> and checks it against its SHA-256 before installing.
-
-Prefer no installer? Unzip `sstp-shield-windows-x64.zip` and **right-click
-`sstp_shield.exe` → Run as administrator**. The portable copy cannot update
-itself; download each new version by hand.
-
-> **SoftEther protocol on Windows:** install the official
-> [SoftEther VPN Client](https://www.softether-download.com/) first. It registers
-> a signed network-adapter driver that only its own installer can provide; the
-> app finds and drives it automatically. The default **SSTP** protocol needs no
-> extra install.
-
-### Linux
-
-**Ubuntu, Debian and their derivatives:** install the `.deb` (from 3.6.4):
-
-```bash
-sudo apt install ./sstp-shield-linux-x64.deb
-```
-
-Then start **SSTP Shield** from the applications menu, or run `sstp-shield`.
-The package does the one-time setup below by itself, again on every update,
-and installs to `/opt/sstp-shield`. `sudo apt remove sstp-shield` takes it all
-away. To update, install the new `.deb` the same way.
-
-**Arch Linux and its derivatives:** install the package (from 3.6.6):
-
-```bash
-sudo pacman -U https://github.com/sstp-pinger/sstp_shield_releases/releases/latest/download/sstp-shield-linux-x64.pkg.tar.zst
-```
-
-It works like the `.deb`: menu entry, `sstp-shield`, the setup done on every
-update, `/opt/sstp-shield`. For DNS through the VPN, install `polkit` and run
-`systemd-resolved` (`sudo systemctl enable --now systemd-resolved`).
-`sudo pacman -R sstp-shield` removes it. It is not in a repository, so
-`pacman -Syu` does not update it: run the same `pacman -U` for each new
-version.
-
-**Other distributions:** use the tarball. The default **SSTP** protocol creates
-a TUN device, which needs the `CAP_NET_ADMIN` capability. Do **not** run the
-app with `sudo` — grant the capability once instead:
-
-```bash
-tar xzf sstp-shield-linux-x64.tar.gz
-cd sstp-shield-linux-x64
-
-# One-time: grant the capability and allow DNS changes
-# (needs gcc, libcap, patchelf; asks for your password once).
-./tool/setup_privilege.sh ./sstp_shield
-
-# Launch via the generated wrapper.
-./sstp-vpn
-```
-
-Re-run `setup_privilege.sh` after replacing the binary (an update clears the
-capability).
-
-**DNS through the VPN:** in full-tunnel mode the app points
-`systemd-resolved` at 1.1.1.1 and 8.8.8.8 through the tunnel, so name lookups
-don't leak to your local network, and puts your DNS back on disconnect. The
-setup script installs a polkit rule that lets your user do this without a
-password prompt. **Updating from 3.5 or older? Run the script once more** to
-get the rule; until then the app connects but warns that DNS is not going
-through the VPN. The `.deb` installs this rule for whoever is logged in at the
-computer, the same users the system lets change network settings.
-
-> **SoftEther protocol on Linux:** no setup needed — with the tarball, just run `./sstp_shield`.
-> Choosing SoftEther elevates a small helper through `pkexec`, so a password
-> prompt appears on connect (needs `polkit`).
-
-## Simple mode
-
-New installs open in Simple mode: a status line, one big **Connect** button,
-and a settings button in the top-right corner. Nothing to choose.
-
-- **Connect** finds the fastest server and keeps the connection working: it
-  checks that pages really load, and moves to another server by itself if
-  one stops. A line running around the button's border shows how far the
-  connection has got, and the dot beside the status pulses while it works.
-- **Try another server** appears once you are connected. Press it if a site
-  will not load.
-- **Disconnect** turns protection off.
-- When the free trial ends, one screen says so, with a **Get access** button
-  for an activation code or a subscription.
-
-The server list refreshes by itself every 12 hours while you are connected.
-
-**Switching view:** in Simple mode, tap the settings button (top right) →
-**Switch to professional view**. In the professional view, **Settings → Look
-→ View → Simple** brings you back. Updating from an older version keeps the
-professional view.
-
-## Professional view
-
-- **Activate** — on the Unlock screen: start the free trial, paste an
-  activation code (or load the code file), or subscribe with USDT.
-- **Pick a server** — browse the **Servers**, **Bookmarks**, and **Recents**
-  tabs. The header shows how many servers are available and how many are
-  currently reachable. A view-mode toggle switches between grouped and a flat,
-  sorted list.
-- **Refresh servers** — the download-style button (next to ping) fetches a fresh
-  server list. Your saved servers stay on screen and usable while it loads,
-  with a thin bar above the list; **Stop fetching** cancels a slow fetch. If
-  the fetch fails, the saved list stays and a note says so.
-- **Ping** — measures latency so you can pick a fast server.
-- **Protocol** *(desktop only)* — choose **SSTP** or **SoftEther** in a
-  profile's settings. Hidden on mobile, which is SSTP-only.
-- **Auto-switch** — hold **Connect**: the app checks that pages load through
-  the tunnel and moves through the measured servers until one keeps working.
-  **Next server** moves on yourself.
-- **Reconnection** — set a retry count and interval in Settings to auto-recover
-  dropped tunnels.
-
-## Command-line tool (Windows, Linux)
-
-The Windows and Linux downloads also include `sstp-shield-cli`, which does
-the same without the window: connect, measure servers, manage your access and
-change settings. It uses the app's account and settings, so there is nothing
-to activate twice. **Close the app first**: only one of them runs at a time.
-
-- **Windows:** it is in the install folder. Tick **Add the command-line tool to
-  PATH** in the installer to run it from any folder. `connect` needs a terminal
-  opened with **Run as administrator**.
-- **Linux, `.deb` or Arch package:** nothing to do; run `sstp-shield-cli`
-  from any folder.
-- **Linux, tarball:** after the app's setup above, grant it the same
-  capability once, and again after every update:
-  `sudo setcap cap_net_admin+ep ./sstp-shield-cli`
-
-```bash
-sstp-shield-cli ping                    # measure every server
-sstp-shield-cli connect                 # fastest server; q or Ctrl+C disconnects
-sstp-shield-cli connect --auto-switch   # keep moving until one works; n = next
-sstp-shield-cli account status
-sstp-shield-cli config get
-```
-
-Every command and option: [CLI.md](CLI.md).
-
-## Troubleshooting
-
-| Symptom | Fix |
-|---------|-----|
-| Windows: connects but "connection refused" fetching servers | Make sure you launched **as Administrator**. |
-| Windows: the app does not start | Install the latest [Visual C++ Redistributable (x64)](https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist). |
-| Linux: the app does not start (GLIBC error) | Your distribution is too old; see the [requirements](REQUIREMENTS.md). |
-| Windows: SoftEther fails to connect | Install the official SoftEther VPN Client, then retry. |
-| Linux: "needs CAP_NET_ADMIN" | `.deb` or Arch package: reinstall it. Tarball: run `./tool/setup_privilege.sh ./sstp_shield` (no sudo), then launch `./sstp-vpn`. |
-| Linux: "DNS is NOT going through the VPN" | `.deb`: install `systemd-resolved` and `polkitd`. Arch: install `polkit` and enable `systemd-resolved`. Tarball: run `./tool/setup_privilege.sh ./sstp_shield` again to install the DNS rule (needs the same two). |
-| WSL: DNS warning about `10.255.255.254` | WSL writes its own resolver. Set `generateResolvConf=false` in `/etc/wsl.conf` and link `/etc/resolv.conf` to systemd-resolved's stub. |
-| `sstp-shield-cli`: "already running" | Close the SSTP Shield app (or the other `sstp-shield-cli`) first. |
-| A server hangs or won't connect | Pick another — free servers come and go. Ping first to find a live one. |
+- [Troubleshooting](https://sstp-pinger.github.io/docs/troubleshooting)
+- [FAQ](https://sstp-pinger.github.io/docs/faq)
+- Email: [sstp.pinger@gmail.com](mailto:sstp.pinger@gmail.com)
 
 ## Privacy
 
-SSTP Shield is a VPN client. It talks only to the VPN servers you connect to and
-the activation/server-list endpoint. No source is hosted here — this repo is
-downloads and docs only.
-
-See the full [Privacy Policy](https://sstp-shield-server.vercel.app/privacy) and
-[Terms of Service](https://sstp-shield-server.vercel.app/terms).
-</content>
-</invoke>
+SSTP Shield talks only to the VPN servers you connect to and its
+activation and server-list service, which is never in the path of your VPN
+traffic. See the [Privacy Policy](https://sstp-shield-server.vercel.app/privacy)
+and [Terms of Service](https://sstp-shield-server.vercel.app/terms).
