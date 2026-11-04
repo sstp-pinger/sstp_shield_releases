@@ -15,8 +15,10 @@ so and exits. Close the app before using the CLI, and the other way round.
 **Add the command-line tool to PATH** in the installer. Otherwise run it from
 the install folder.
 
-**Linux:** creating the tunnel needs the `CAP_NET_ADMIN` capability, the same
-as for the app. Do the app's one-time setup, then give the CLI the capability:
+**Linux:** installed from the `.deb`, it is ready: run `sstp-shield-cli` from
+any folder. With the tarball, creating the tunnel needs the `CAP_NET_ADMIN`
+capability, the same as for the app. Do the app's one-time setup, then give
+the CLI the capability:
 
 ```sh
 ./tool/setup_privilege.sh ./sstp_shield

@@ -34,15 +34,16 @@ The installer (`sstp-shield-setup-x64.exe`) is not code-signed yet, so Windows S
 | **Storage** | About 27 MB download, more once extracted. |
 | **Desktop** | GTK 3 (installed with GNOME, KDE, Xfce and most desktops); X11 or Wayland |
 | **Kernel** | TUN support (`/dev/net/tun`), present in all mainstream kernels |
-| **Tools** | `ip` from iproute2. For the one-time setup: `gcc`, `libcap` (`setcap`), `patchelf` and `sudo`. |
+| **Tools** | `ip` from iproute2. The `.deb` (Ubuntu, Debian) needs nothing else: `apt` installs what it depends on. For the tarball's one-time setup: `gcc`, `libcap` (`setcap`), `patchelf` and `sudo`. |
 | **SoftEther protocol (optional)** | `polkit` (`pkexec`), which asks for your password when you connect. The SoftEther client itself is bundled. |
 
 ## Command-line tool
 
 `sstp-shield-cli` has the same requirements as the desktop app it ships with.
 On Windows, `connect` needs a terminal opened with **Run as administrator**. On
-Linux, it needs the capability once, after the app's setup:
-`sudo setcap cap_net_admin+ep ./sstp-shield-cli`. See [CLI.md](CLI.md).
+Linux, the `.deb` sets it up; with the tarball it needs the capability once,
+after the app's setup: `sudo setcap cap_net_admin+ep ./sstp-shield-cli`. See
+[CLI.md](CLI.md).
 
 ## Network (all platforms)
 

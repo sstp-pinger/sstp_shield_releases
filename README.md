@@ -40,7 +40,8 @@ Grab the [**latest release**](https://github.com/sstp-pinger/sstp_shield_release
 | **Android** (smaller) | `sstp-shield-arm64-v8a.apk` | Per-ABI split (~20 MB). Most modern phones are **arm64-v8a**; older ones **armeabi-v7a**; emulators **x86_64**. |
 | **Windows** | `sstp-shield-setup-x64.exe` | Installer — choose a folder, adds a desktop shortcut, updates itself. |
 | **Windows** (portable) | `sstp-shield-windows-x64.zip` | Unzip and run **as Administrator**. No in-app updates. |
-| **Linux** | `sstp-shield-linux-x64.tar.gz` | Extract, grant a capability once, then launch. |
+| **Linux** (Ubuntu, Debian) | `sstp-shield-linux-x64.deb` | Install with `apt`; sets everything up and adds a menu entry. |
+| **Linux** (other) | `sstp-shield-linux-x64.tar.gz` | Extract, grant a capability once, then launch. |
 
 Check the [**system requirements**](REQUIREMENTS.md) first: Android 7.0+,
 Windows 10/11 x64, or 64-bit Linux with glibc 2.39+ (Ubuntu 24.04 or newer).
@@ -89,9 +90,20 @@ itself; download each new version by hand.
 
 ### Linux
 
-The default **SSTP** protocol creates a TUN device, which needs the
-`CAP_NET_ADMIN` capability. Do **not** run the app with `sudo` — grant the
-capability once instead:
+**Ubuntu, Debian and their derivatives:** install the `.deb` (from 3.6.4):
+
+```bash
+sudo apt install ./sstp-shield-linux-x64.deb
+```
+
+Then start **SSTP Shield** from the applications menu, or run `sstp-shield`.
+The package does the one-time setup below by itself, again on every update,
+and installs to `/opt/sstp-shield`. `sudo apt remove sstp-shield` takes it all
+away. To update, install the new `.deb` the same way.
+
+**Other distributions:** use the tarball. The default **SSTP** protocol creates
+a TUN device, which needs the `CAP_NET_ADMIN` capability. Do **not** run the
+app with `sudo` — grant the capability once instead:
 
 ```bash
 tar xzf sstp-shield-linux-x64.tar.gz
@@ -114,9 +126,10 @@ don't leak to your local network, and puts your DNS back on disconnect. The
 setup script installs a polkit rule that lets your user do this without a
 password prompt. **Updating from 3.5 or older? Run the script once more** to
 get the rule; until then the app connects but warns that DNS is not going
-through the VPN.
+through the VPN. The `.deb` installs this rule for whoever is logged in at the
+computer, the same users the system lets change network settings.
 
-> **SoftEther protocol on Linux:** no setup needed — just run `./sstp_shield`.
+> **SoftEther protocol on Linux:** no setup needed — with the tarball, just run `./sstp_shield`.
 > Choosing SoftEther elevates a small helper through `pkexec`, so a password
 > prompt appears on connect (needs `polkit`).
 
@@ -173,8 +186,9 @@ to activate twice. **Close the app first**: only one of them runs at a time.
 - **Windows:** it is in the install folder. Tick **Add the command-line tool to
   PATH** in the installer to run it from any folder. `connect` needs a terminal
   opened with **Run as administrator**.
-- **Linux:** after the app's setup above, grant it the same capability once,
-  and again after every update:
+- **Linux, `.deb`:** nothing to do; run `sstp-shield-cli` from any folder.
+- **Linux, tarball:** after the app's setup above, grant it the same
+  capability once, and again after every update:
   `sudo setcap cap_net_admin+ep ./sstp-shield-cli`
 
 ```bash
@@ -195,8 +209,8 @@ Every command and option: [CLI.md](CLI.md).
 | Windows: the app does not start | Install the latest [Visual C++ Redistributable (x64)](https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist). |
 | Linux: the app does not start (GLIBC error) | Your distribution is too old; see the [requirements](REQUIREMENTS.md). |
 | Windows: SoftEther fails to connect | Install the official SoftEther VPN Client, then retry. |
-| Linux: "needs CAP_NET_ADMIN" | Run `./tool/setup_privilege.sh ./sstp_shield` (no sudo), then launch `./sstp-vpn`. |
-| Linux: "DNS is NOT going through the VPN" | Run `./tool/setup_privilege.sh ./sstp_shield` again to install the DNS rule. Needs `systemd-resolved` and `polkit`. |
+| Linux: "needs CAP_NET_ADMIN" | `.deb`: reinstall it. Tarball: run `./tool/setup_privilege.sh ./sstp_shield` (no sudo), then launch `./sstp-vpn`. |
+| Linux: "DNS is NOT going through the VPN" | `.deb`: install `systemd-resolved` and `polkitd`. Tarball: run `./tool/setup_privilege.sh ./sstp_shield` again to install the DNS rule (needs the same two). |
 | WSL: DNS warning about `10.255.255.254` | WSL writes its own resolver. Set `generateResolvConf=false` in `/etc/wsl.conf` and link `/etc/resolv.conf` to systemd-resolved's stub. |
 | `sstp-shield-cli`: "already running" | Close the SSTP Shield app (or the other `sstp-shield-cli`) first. |
 | A server hangs or won't connect | Pick another — free servers come and go. Ping first to find a live one. |
