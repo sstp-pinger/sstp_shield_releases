@@ -38,7 +38,8 @@ sstp-shield-cli connect   [host[:port]] [--country CC | --bookmark N]
 sstp-shield-cli servers   [--refresh] [--country CC] [--limit N | --all] [--json]
 sstp-shield-cli ping      [--refresh] [--top N]
 sstp-shield-cli account   status | activate <code> | activate --file F | trial
-                          | subscribe [--network bep20|trc20 --tx HASH]
+                          | subscribe [--network bep20|trc20 --months N]
+                          | subscribe --order ID --tx HASH
                           | sessions | link [--out F]
 sstp-shield-cli bookmarks list | add <host[:port]> | remove <host[:port]>
 sstp-shield-cli config    get [key] | set <key> <value>
