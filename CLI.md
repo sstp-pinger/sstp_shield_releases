@@ -64,6 +64,12 @@ waiting for a clean teardown.
 pages load through the tunnel, and moves through every measured server until
 one keeps working. Press **n** to move to the next server yourself.
 
+While connected, press **r** to download a fresh server list through the
+tunnel, and **u** to download a newer version, if one is out (from GitHub, or
+the jsDelivr mirror where GitHub is blocked). On Windows it installs when you
+disconnect. On Linux it is saved to your home folder, with the one command
+that installs it (`sudo apt install …` or `sudo pacman -U …`).
+
 Reconnecting after a drop, the traffic check and proxy sharing all follow your
 settings (see `config`). `--no-share` turns proxy sharing off for one
 connection.
@@ -114,7 +120,8 @@ and `--verbose` also prints it as it is written.
 - Android and iOS.
 - Running in the background. `connect` stays in the foreground, and `status`
   and `disconnect` from another terminal are not available yet.
-- Installing updates. `version --check` says whether a newer version is out.
-  The CLI ships with the app, so updating the app updates the CLI too.
+- Updating outside `connect`. `version --check` says whether a newer version
+  is out; press **u** while connected to download it. The CLI ships with the
+  app, so updating the app updates the CLI too.
 - The Telegram QR code for proxy sharing. `connect` prints the address
   instead.
