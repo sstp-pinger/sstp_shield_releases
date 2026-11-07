@@ -50,7 +50,8 @@ documentation lives on the [website](https://sstp-pinger.github.io).
 - **No DNS leaks.** In full-tunnel mode name lookups go through the VPN too.
 - **Proxy sharing.** Other devices on your Wi-Fi can use the tunnel through
   one HTTP and SOCKS5 port.
-- **Command-line tool.** `sstp-shield-cli` on Windows and Linux.
+- **Command-line tool.** `sstp-shield-cli` on Windows and Linux, also on a
+  server over SSH.
 - **Updates itself,** with a jsDelivr mirror where GitHub is blocked.
 - **Anonymous payment** with USDT (BEP20 or TRC20).
 

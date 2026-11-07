@@ -49,5 +49,5 @@ after the app's setup: `sudo setcap cap_net_admin+ep ./sstp-shield-cli`. See
 
 - Outbound TCP to the VPN server's port, usually 443.
 - HTTPS access to the server-list and activation service.
-- In-app updates download from GitHub (`github.com` and its release-download host). If those are blocked on your network, download the new version manually.
+- In-app updates download from GitHub (`github.com` and its release-download host). If GitHub is blocked, Windows and Android fall back to the jsDelivr mirror (`cdn.jsdelivr.net`) from 3.6.3, and the CLI's **u** on Linux from 3.7.2. See [Updates](https://sstp-pinger.github.io/docs/guides/updates).
 - Proxy sharing (optional): the other devices must be on the same local network.
