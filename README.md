@@ -77,6 +77,8 @@ for your platform.
 
 - [Troubleshooting](https://sstp-pinger.github.io/docs/troubleshooting)
 - [FAQ](https://sstp-pinger.github.io/docs/faq)
+- Telegram channel (announcements, support): [t.me/sstp_shield_softether](https://t.me/sstp_shield_softether)
+- Telegram (direct message): [t.me/sstp_shield](https://t.me/sstp_shield)
 - Email: [sstp.pinger@gmail.com](mailto:sstp.pinger@gmail.com)
 
 ## Privacy
